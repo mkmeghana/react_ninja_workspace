@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './List.module.css'
 
 const List = (props) => {
-  const usersList = props.users.length && props.users.map((user, i) => {
+  const usersList = props.users && props.users.data && props.users.data.map((user, i) => {
     return (
       <div className='col-md-3' key={user.id}>
         <div className={classes.tile}>
@@ -21,7 +21,7 @@ const List = (props) => {
   return (
     <div className="row">
       {
-        props.users.length && usersList
+        props.users && props.users.data && usersList
       }
     </div>
   )

@@ -33,7 +33,7 @@ const Signin = () => {
       window.location.href = '/home'
     })
     .catch(response => {
-      console.log(response, 'response')
+      console.log(response, 'error')
     })
   }
 
@@ -78,4 +78,4 @@ const Signin = () => {
   )
 }
 
-export default Signin;
+export default Signin

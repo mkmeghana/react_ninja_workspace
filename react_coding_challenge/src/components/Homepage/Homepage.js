@@ -5,9 +5,8 @@ import Pagination from "react-js-pagination";
 import classes from './Homepage.module.css'
 
 const Homepage = () => {
-  const [ usersList, setUsersList ] = useState('');
+  const [ usersData, setUsersData ] = useState('');
   const [ pageno, setPageno ] = useState(1);
-  const [ pageCount, setPageCount ] = useState(1);
   const [ activePage, setActivePage ] = useState(1)
 
   useEffect(() => {
@@ -23,8 +22,7 @@ const Homepage = () => {
   const getUsersList = () => {
     axios.get(`https://reqres.in/api/users?page=${pageno}`)
     .then(response => {
-      setPageCount(response.data.total_pages)
-      setUsersList(response.data.data)
+      setUsersData(response.data)
     })
     .catch(response => {
       console.log(response)
@@ -38,14 +36,14 @@ const Homepage = () => {
       </div>
       <div className="container mt-5">
         <List
-          users = {usersList}
+          users = {usersData}
         />
       </div>
       <Pagination
         activePage={activePage}
-        itemsCountPerPage={6}
-        totalItemsCount={12}
-        pageRangeDisplayed={pageCount}
+        itemsCountPerPage={usersData.per_page} 
+        totalItemsCount={usersData.total || 0}
+        pageRangeDisplayed={usersData.total_pages}
         onChange={handlePageChange}
       />
     </>
