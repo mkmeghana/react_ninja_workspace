@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+a:hover {
+  text-decoration: none;
+}
+.pagination {
+  justify-content: center;
+  margin-top: 17px;
+}
+.pagination  li:first-child, 
+.pagination li:last-child {
+  display: none;
+}
+.pagination li {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #DFE3E8;
+  text-align: center;
+  margin-right: 8px;
+  padding-top: 2px;
+  cursor: pointer;
+}
+.pagination li a {
+  color: black;
+}
+.pagination li:nth-child(2) a, .pagination li:nth-last-child(2) a {
+  color: #C4CDD5;
+  font-weight: 800;
+}
+.pagination li.disabled {
+  background: #919EAB;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+.pagination li.disabled a {
+  cursor: not-allowed;
+}
+.pagination li.active {
+  border: 1px solid #0494FD;
+}
+.pagination li.active a {
+  color: #0494FD;
+}
+.disabled, .disabled a {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
